@@ -1,0 +1,38 @@
+{
+	"name": "typora-uploader",
+	"version": "1.0.1",
+	"description": "out-of-the-box typora image uploader",
+	"bin": {
+		"typora-uploader": "./bin/typora-uploader"
+	},
+	"files": [
+		"assets",
+		"bin",
+		"lib"
+	],
+	"author": {
+		"name": "sclin"
+	},
+	"scripts": {
+		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^8.3.5",
+		"@commitlint/config-conventional": "^8.3.4",
+		"commitizen": "^4.1.2",
+		"conventional-changelog-cli": "^2.0.34",
+		"cz-conventional-changelog": "^3.2.0",
+		"husky": "^4.2.5"
+	},
+	"license": "ISC"
+}

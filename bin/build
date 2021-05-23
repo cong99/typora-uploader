@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+const parseArgs = require('minimist')
+const { spawn } = require('../lib/helpers/spawn')
+const { ELECTRON_SCRIPT_NAME } = require('../lib/constant')
+
+const argv = parseArgs(process.argv.slice(2), {
+	alias: {
+		h: 'help'
+	},
+	boolean: ['h']
+})
+
+if (argv.help) {
+	console.log(`
+  Description
+    Build electron app
+  Usage
+    $ easy-electron build
+  Options
+    --help, -h     Displays this message
+  `)
+	process.exit(0)
+}
+
+spawn(`npx cross-env NODE_ENV=production node ${ELECTRON_SCRIPT_NAME} build`, [], { cwd: process.cwd() })

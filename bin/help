@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+console.log()
+console.log(require('fs').readFileSync(require('path').join(__dirname, '../assets/logo.art'), 'utf8'))
+
+console.log('  Running easy-electron v' + require('../package.json').version)
+
+console.log(`
+  Example usage
+    $ easy-electron <command> <options>
+
+  Help for a command
+    $ easy-electron <command> --help
+    $ easy-electron <command> -h
+
+  Options
+    --version, -v Print easy-electron version
+
+  Commands
+    inject, i     Inject electron to your project
+    run, r        Run electron on dev
+    build, b      Build electron app
+    help, h       Displays this message
+
+  If the specified command is not found, then "easy-electron --help"
+  will be executed with the provided arguments.
+`)
