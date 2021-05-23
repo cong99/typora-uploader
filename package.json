@@ -10,6 +10,12 @@
 		"bin",
 		"lib"
 	],
+	"keywords": [
+		"typora",
+		"image",
+		"upload",
+		"qq"
+	],
 	"author": {
 		"name": "cong99"
 	},
@@ -34,10 +40,18 @@
 		"cz-conventional-changelog": "^3.2.0",
 		"husky": "^4.2.5"
 	},
-	"license": "ISC",
 	"dependencies": {
 		"chalk": "^4.1.1",
 		"form-data": "^4.0.0",
 		"minimist": "^1.2.5"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cong99/typora-uploader.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cong99/typora-uploader/issues"
+	},
+	"homepage": "https://github.com/cong99/typora-uploader",
+	"license": "ISC"
 }
