@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+const parseArgs = require('minimist')
+const pkg = require('../package.json')
+const { blue } = require('chalk')
+const path = require('path')
+const { fatal } = require('../lib/helpers/logger')
+const Uploader = require('../lib/uploaders/qq')
+const uploader = new Uploader()
+
+const argv = parseArgs(process.argv.slice(2), {
+	alias: {
+		h: 'help'
+	},
+	boolean: ['h']
+})
+
+if (argv.help) {
+	console.log(`
+  Description
+    Upload image
+  Usage
+    ${blue(`$ ${pkg.name} upload path/to/image.jpg`)}
+  Options
+    --help, -h     Displays this message
+  `)
+	process.exit(0)
+}
+
+let imagePaths = argv._
+if (!imagePaths || !imagePaths.length) {
+	fatal('require image path')
+}
+// 绝对化路径
+imagePaths = imagePaths.map(item => path.resolve(item))
+
+// https://support.typora.io/Upload-Image/#use-current-filename--filepath-in-custom-commands
+uploader
+	.push(imagePaths)
+	.then(urls => {
+		console.log('Upload Success:')
+		urls.forEach(url => {
+			console.log(url)
+		})
+	})
+	.catch(err => {
+		console.log('Upload Failed:')
+		console.log(err.message)
+	})

@@ -1,27 +1,29 @@
 #!/usr/bin/env node
+const pkg = require('../package.json')
+const { name, version } = pkg
+const { green, blue } = require('chalk')
+const logo = green(require('fs').readFileSync(require('path').join(__dirname, '../assets/logo.art'), 'utf8'))
 
 console.log()
-console.log(require('fs').readFileSync(require('path').join(__dirname, '../assets/logo.art'), 'utf8'))
+console.log(logo)
 
-console.log('  Running easy-electron v' + require('../package.json').version)
+console.log(`  Running ${name} v ${version}`)
 
 console.log(`
   Example usage
-    $ easy-electron <command> <options>
+    $ ${name} <command> <options>
 
   Help for a command
-    $ easy-electron <command> --help
-    $ easy-electron <command> -h
+    $ ${name} <command> --help
+    $ ${name} <command> -h
 
   Options
-    --version, -v Print easy-electron version
+    --version, -v Print ${name} version
 
   Commands
-    inject, i     Inject electron to your project
-    run, r        Run electron on dev
-    build, b      Build electron app
-    help, h       Displays this message
+    ${blue('upload, u     Upload image')}
+    ${blue('help, h       Displays this message')}
 
-  If the specified command is not found, then "easy-electron --help"
+  If the specified command is not found, then "${name} --help"
   will be executed with the provided arguments.
 `)

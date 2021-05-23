@@ -1,12 +1,16 @@
-# voerka-lib
+# typora-uploader
 
-## lerna
+free image uploader, not only used in `typora`
 
-```shell
-# 给某个子项目添加包
-lerna add axios --scope=@voerka/form-editor
-lerna add precss --dev --scope=@voerka/form-editor
-# 也可以是链接过去
-lerna add @lljj/vue-json-schema-form --scope=@voerka/form-editor
+
+
+```javascript
+
+npm i typora-uploader -g
+
+typora-uploader -h
+
+typora-uploader upload path/to/iamge1.jpg path/to/image2.jpg
 
 ```
+
