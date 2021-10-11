@@ -1,6 +1,6 @@
 {
 	"name": "typora-uploader",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "out-of-the-box typora image uploader",
 	"bin": {
 		"typora-uploader": "./bin/index"
@@ -43,7 +43,9 @@
 	"dependencies": {
 		"chalk": "^4.1.1",
 		"form-data": "^4.0.0",
-		"minimist": "^1.2.5"
+		"minimist": "^1.2.5",
+		"request": "^2.88.2",
+		"sharp": "^0.29.1"
 	},
 	"repository": {
 		"type": "git",

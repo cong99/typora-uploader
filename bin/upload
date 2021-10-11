@@ -2,7 +2,6 @@
 const parseArgs = require('minimist')
 const pkg = require('../package.json')
 const { blue } = require('chalk')
-const path = require('path')
 const { fatal } = require('../lib/helpers/logger')
 const Uploader = require('../lib/uploaders/qq')
 const uploader = new Uploader()
@@ -30,8 +29,6 @@ let imagePaths = argv._
 if (!imagePaths || !imagePaths.length) {
 	fatal('require image path')
 }
-// 绝对化路径
-imagePaths = imagePaths.map(item => path.resolve(item))
 
 // https://support.typora.io/Upload-Image/#use-current-filename--filepath-in-custom-commands
 uploader
